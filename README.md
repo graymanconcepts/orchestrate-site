@@ -2,12 +2,14 @@
 
 The official website for Orchestrate Suite, a collection of powerful tools and applications developed by Grayman Concepts. This website showcases our products, services, and company information.
 
+![Orchestrate Suite](/readme-imgs/Orchestrate-Suite.png)
+
 ## 🚀 Featured Products
 
-- **User Admin System** - Comprehensive user management solution
+- **AccessForge** - Comprehensive user management solution
 - **ColorScribe** - Advanced color management tool
-- **Prompt Manager** - AI prompt organization and management
-- **Event Manager** - Streamlined event planning and coordination
+- **MindScribe** - AI prompt organization and management
+- **Eventium** - Streamlined event planning and coordination
 
 ## 💻 Technology Stack
 
