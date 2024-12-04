@@ -1,0 +1,68 @@
+---
+import ProductLayout from '../../layouts/ProductLayout.astro';
+import Carousel from '../../components/Carousel.astro';
+
+const features = [
+  {
+    title: "AI-Powered Design",
+    description: "Transform text descriptions into beautiful designs using advanced AI algorithms."
+  },
+  {
+    title: "Color Palette Generation",
+    description: "Generate harmonious color schemes that perfectly match your brand and vision."
+  },
+  {
+    title: "Design Templates",
+    description: "Access a wide range of customizable templates for various design needs."
+  },
+  {
+    title: "Export Options",
+    description: "Export your designs in multiple formats suitable for web and print."
+  }
+];
+
+const carouselImages = [
+  {
+    src: "/images/colorscribe/Home from 2024-12-01 09-31-22.png",
+    alt: "ColorScribe Dashboard"
+  }
+];
+
+---
+
+<ProductLayout
+  title="ColorScribe"
+  productName="ColorScribe"
+  description="Transform your ideas into stunning visuals with AI-powered color and design generation."
+  featuredImage="/images/colorscribe/Home from 2024-12-01 09-31-22.png"
+>
+  <!-- Features Grid -->
+  <div class="grid md:grid-cols-2 gap-8 mb-24">
+    {features.map(feature => (
+      <div class="bg-gray-800/50 p-8 rounded-2xl">
+        <h3 class="text-xl font-semibold mb-4">{feature.title}</h3>
+        <p class="text-gray-400">{feature.description}</p>
+      </div>
+    ))}
+  </div>
+
+
+  <!-- Use Cases -->
+  <div class="text-center mb-24">
+    <h2 class="text-3xl font-bold mb-12">Perfect for Creatives</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Designers</h3>
+        <p class="text-gray-400">Streamline your design workflow with AI assistance</p>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Marketing Teams</h3>
+        <p class="text-gray-400">Create consistent brand visuals effortlessly</p>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Content Creators</h3>
+        <p class="text-gray-400">Generate engaging visuals for your content</p>
+      </div>
+    </div>
+  </div>
+</ProductLayout>

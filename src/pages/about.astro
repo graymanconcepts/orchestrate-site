@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+
+const stats = [
+  { label: 'Enterprise Clients', value: '100+' },
+  { label: 'Integrations', value: '50+' },
+  { label: 'Workflows Automated', value: '1M+' },
+  { label: 'Hours Saved Monthly', value: '10K+' }
+];
+
+const values = [
+  {
+    title: 'Relentless Innovation',
+    description: 'We don\'t just adapt to change - we drive it. Our cutting-edge AI and automation solutions redefine what\'s possible in digital workflows.',
+    icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>`
+  },
+  {
+    title: 'Human-Centered Excellence',
+    description: 'Every feature we craft is born from real-world challenges, designed to empower users and transform complexity into clarity.',
+    icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>`
+  },
+  {
+    title: 'Enterprise-Grade Integration',
+    description: 'Our ecosystem doesn\'t just connect tools - it creates a symphony of productivity, where every component works in perfect harmony at scale.',
+    icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+    </svg>`
+  }
+];
+---
+
+<Layout title="About - Orchestrate Suite">
+  <main class="pt-32 pb-24">
+    <div class="container mx-auto px-6">
+      <!-- Hero Section -->
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          <span class="gradient-text">Orchestrating Tomorrow's Enterprise</span>
+        </h1>
+        <p class="text-xl text-gray-400 leading-relaxed">
+          We're not just building tools - we're architecting the future of enterprise productivity. Experience the power of intelligent automation, designed for the modern workplace.
+        </p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-24">
+        {stats.map(stat => (
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">{stat.value}</div>
+            <div class="text-gray-400">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Vision Section -->
+      <div class="max-w-3xl mx-auto text-center mb-24">
+        <h2 class="text-3xl font-bold mb-6 gradient-text">Our Vision</h2>
+        <p class="text-xl text-gray-400 leading-relaxed">
+          In a world where digital complexity grows exponentially, we envision a future where technology amplifies human potential, not constrains it. Orchestrate Suite isn't just a collection of tools - it's a paradigm shift in how enterprises harness the power of automation and AI.
+        </p>
+      </div>
+
+      <!-- Products Overview -->
+      <div class="mb-24">
+        <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Enterprise Innovation Suite</h2>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700/50">
+            <h3 class="text-xl font-semibold mb-4 gradient-text">ColorScribe</h3>
+            <p class="text-gray-400 leading-relaxed">Harness the power of AI to master color selection and management. Transform your design workflow with intelligent color harmony and accessibility optimization.</p>
+          </div>
+          <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700/50">
+            <h3 class="text-xl font-semibold mb-4 gradient-text">Eventium</h3>
+            <p class="text-gray-400 leading-relaxed">Elevate your event planning with AI-driven insights and automation. From conception to execution, orchestrate flawless events with unprecedented efficiency.</p>
+          </div>
+          <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700/50">
+            <h3 class="text-xl font-semibold mb-4 gradient-text">MindScribe</h3>
+            <p class="text-gray-400 leading-relaxed">Master the art of AI communication with our advanced prompt engineering platform. Optimize and manage your AI interactions at scale.</p>
+          </div>
+          <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700/50">
+            <h3 class="text-xl font-semibold mb-4 gradient-text">AccessForge</h3>
+            <p class="text-gray-400 leading-relaxed">Redefine access management with intelligent role-based controls. Secure, scalable, and intuitive - the future of enterprise user administration.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Values Section -->
+      <div class="mb-24">
+        <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Our Principles</h2>
+        <div class="grid md:grid-cols-3 gap-12 max-w-4xl mx-auto">
+          {values.map(value => (
+            <div class="text-center group">
+              <div class="text-primary-500 flex justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300" set:html={value.icon} />
+              <h3 class="text-xl font-semibold mb-4 gradient-text">{value.title}</h3>
+              <p class="text-gray-400 leading-relaxed">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="text-center max-w-2xl mx-auto bg-gray-800/30 rounded-2xl p-12 border border-gray-700/50">
+        <h2 class="text-3xl font-bold mb-6 gradient-text">Ready to Transform Your Enterprise?</h2>
+        <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+          Join the forward-thinking organizations that are redefining what's possible with Orchestrate Suite.
+        </p>
+        <div class="flex justify-center gap-6">
+          <Button href="/demo" variant="primary" class="text-lg px-8 py-3">Request Demo</Button>
+          <Button href="/contact" variant="outline" class="text-lg px-8 py-3">Contact Us</Button>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
+</style>

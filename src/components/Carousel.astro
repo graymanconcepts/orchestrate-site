@@ -1,0 +1,166 @@
+---
+interface Props {
+  images: {
+    src: string;
+    alt: string;
+  }[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="relative w-full max-w-3xl mx-auto mb-24">
+  <div class="carousel-container overflow-hidden rounded-2xl">
+    <div class="carousel-track flex transition-transform duration-500">
+      {
+        images.map((image, index) => (
+          <div class="carousel-slide w-full flex-shrink-0">
+            <div class="aspect-video bg-gray-800/50 overflow-hidden">
+              <img
+                src={image.src}
+                alt={image.alt}
+                class="w-full h-full object-cover transition-transform duration-500"
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  
+  <button
+    class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-gray-900/80 text-white p-3 rounded-full hover:bg-gray-800 transition-colors"
+    aria-label="Previous slide"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+  
+  <button
+    class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-gray-900/80 text-white p-3 rounded-full hover:bg-gray-800 transition-colors"
+    aria-label="Next slide"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+
+  <div class="flex justify-center mt-4 gap-2">
+    {
+      images.map((_, index) => (
+        <button
+          class="carousel-dot w-3 h-3 rounded-full bg-gray-500 hover:bg-primary-500 transition-colors"
+          data-index={index}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<script>
+class Carousel {
+  constructor(element) {
+    this.container = element;
+    this.track = element.querySelector('.carousel-track');
+    this.slides = element.querySelectorAll('.carousel-slide');
+    this.prevButton = element.querySelector('.carousel-prev');
+    this.nextButton = element.querySelector('.carousel-next');
+    this.dots = element.querySelectorAll('.carousel-dot');
+    this.currentIndex = 0;
+    this.slideCount = this.slides.length;
+
+    this.init();
+  }
+
+  init() {
+    this.updateSlideWidth();
+    this.setupEventListeners();
+    this.updateDots();
+    window.addEventListener('resize', () => this.updateSlideWidth());
+  }
+
+  updateSlideWidth() {
+    const containerWidth = this.container.offsetWidth;
+    this.slides.forEach(slide => {
+      slide.style.width = `${containerWidth}px`;
+    });
+    this.goToSlide(this.currentIndex, false);
+  }
+
+  setupEventListeners() {
+    this.prevButton?.addEventListener('click', () => this.prevSlide());
+    this.nextButton?.addEventListener('click', () => this.nextSlide());
+    this.dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => this.goToSlide(index));
+    });
+  }
+
+  prevSlide() {
+    const newIndex = (this.currentIndex - 1 + this.slideCount) % this.slideCount;
+    this.goToSlide(newIndex);
+  }
+
+  nextSlide() {
+    const newIndex = (this.currentIndex + 1) % this.slideCount;
+    this.goToSlide(newIndex);
+  }
+
+  goToSlide(index, animate = true) {
+    this.currentIndex = index;
+    const offset = -index * this.container.offsetWidth;
+    this.track.style.transform = `translateX(${offset}px)`;
+    if (!animate) {
+      this.track.style.transition = 'none';
+      requestAnimationFrame(() => {
+        this.track.style.transition = '';
+      });
+    }
+    this.updateDots();
+  }
+
+  updateDots() {
+    this.dots.forEach((dot, index) => {
+      if (index === this.currentIndex) {
+        dot.classList.add('bg-primary-500');
+        dot.classList.remove('bg-gray-500');
+      } else {
+        dot.classList.add('bg-gray-500');
+        dot.classList.remove('bg-primary-500');
+      }
+    });
+  }
+}
+
+// Initialize all carousels on the page
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.carousel-container').forEach(container => {
+    new Carousel(container.parentElement);
+  });
+});
+</script>
+
+<style>
+.carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+}
+
+.carousel-slide {
+  flex-shrink: 0;
+}
+
+button {
+  outline: none;
+}
+
+button:focus-visible {
+  @apply ring-2 ring-primary-500 ring-offset-2;
+}
+</style>

@@ -1,0 +1,88 @@
+---
+import ProductLayout from '../../layouts/ProductLayout.astro';
+import Carousel from '../../components/Carousel.astro';
+
+const features = [
+  {
+    title: "Prompt Version Control",
+    description: "Track and manage different versions of your prompts with detailed change history."
+  },
+  {
+    title: "Performance Analytics",
+    description: "Monitor and analyze prompt effectiveness with comprehensive analytics."
+  },
+  {
+    title: "Template Management",
+    description: "Create and manage reusable prompt templates for consistent results."
+  },
+  {
+    title: "AI Model Integration",
+    description: "Seamlessly integrate with various AI models and track their performance."
+  }
+];
+
+const carouselImages = [
+  {
+    src: "/images/promptmgr/Dashboard from 2024-11-21 15-08-04.png",
+    alt: "MindScribe Dashboard"
+  },
+  {
+    src: "/images/promptmgr/Analytics from 2024-11-21 15-11-31.png",
+    alt: "MindScribe Analytics"
+  },
+  {
+    src: "/images/promptmgr/Glossary from 2024-11-21 15-10-22.png",
+    alt: "MindScribe Glossary"
+  },
+  {
+    src: "/images/promptmgr/PromptMgr from 2024-11-21 15-10-35.png",
+    alt: "MindScribe Prompt Manager"
+  },
+  {
+    src: "/images/promptmgr/SourceMgr  from 2024-11-21 15-10-49.png",
+    alt: "MindScribe Source Manager"
+  }
+];
+---
+
+<ProductLayout
+  title="MindScribe"
+  productName="MindScribe"
+  description="A powerful platform for managing, optimizing, and tracking AI prompts across your organization."
+  featuredImage="/images/promptmgr/Dashboard from 2024-11-21 15-08-04.png"
+>
+  <!-- Features Grid -->
+  <div class="grid md:grid-cols-2 gap-8 mb-24">
+    {features.map(feature => (
+      <div class="bg-gray-800/50 p-8 rounded-2xl">
+        <h3 class="text-xl font-semibold mb-4">{feature.title}</h3>
+        <p class="text-gray-400">{feature.description}</p>
+      </div>
+    ))}
+  </div>
+
+  <!-- Image Carousel -->
+  <div class="mb-24">
+    <h2 class="text-3xl font-bold text-center mb-12">Product Screenshots</h2>
+    <Carousel images={carouselImages} />
+  </div>
+
+  <!-- Use Cases -->
+  <div class="text-center mb-24">
+    <h2 class="text-3xl font-bold mb-12">Perfect for AI-Driven Teams</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">AI Development</h3>
+        <p class="text-gray-400">Streamline prompt engineering and testing workflows</p>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Content Creation</h3>
+        <p class="text-gray-400">Maintain consistent AI-assisted content generation</p>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Research Teams</h3>
+        <p class="text-gray-400">Track and analyze AI interactions across experiments</p>
+      </div>
+    </div>
+  </div>
+</ProductLayout>

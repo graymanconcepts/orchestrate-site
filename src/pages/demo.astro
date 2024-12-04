@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+
+---
+
+<Layout title="Request a Demo">
+  <main class="pt-32 pb-24">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-center mb-6">
+          <span class="gradient-text">Request a Demo</span>
+        </h1>
+        <p class="text-xl text-gray-400 text-center mb-12">Fill out the form below and we'll get back to you with a personalized demo of our products.</p>
+        
+        <form id="demo-request-form" class="space-y-6">
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-sm font-medium mb-2">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium mb-2">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-sm font-medium mb-2">Additional Information</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              class="w-full px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center">
+            <Button type="button" id="submit-button" variant="primary">
+              <span id="submit-text">Submit Request</span>
+            </Button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('demo-request-form') as HTMLFormElement;
+  const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+
+  submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    const nameInput = document.getElementById('name') as HTMLInputElement;
+    const emailInput = document.getElementById('email') as HTMLInputElement;
+    const messageInput = document.getElementById('message') as HTMLTextAreaElement;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const subject = 'Demo Request from ' + nameInput.value;
+    const body = `Name: ${nameInput.value}
+Email: ${emailInput.value}
+
+Message:
+${messageInput.value}`;
+
+    window.location.href = `mailto:education@graymanconcepts.us?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>

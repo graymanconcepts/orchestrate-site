@@ -1,0 +1,57 @@
+---
+import Button from './Button.astro';
+import CheckIcon from '../icons/CheckIcon.astro';
+
+interface Props {
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  highlighted?: boolean;
+  ctaText?: string;
+}
+
+const { 
+  name, 
+  price, 
+  description, 
+  features, 
+  highlighted = false,
+  ctaText = "Get Started"
+} = Astro.props;
+---
+
+<div class:list={[
+  "p-8 rounded-2xl h-full flex flex-col",
+  highlighted 
+    ? "bg-gradient-to-b from-primary-900/50 to-secondary-900/50 border-2 border-primary-500/20" 
+    : "bg-gray-800/50"
+]}>
+  <div class="mb-8">
+    <h3 class="text-2xl font-bold mb-2">{name}</h3>
+    <div class="mb-4">
+      <span class="text-4xl font-bold">{price}</span>
+      {price !== 'Custom' && <span class="text-gray-400">/month</span>}
+    </div>
+    <p class="text-gray-400">{description}</p>
+  </div>
+
+  <ul class="space-y-4 mb-8 flex-grow">
+    {features.map(feature => (
+      <li class="flex items-start gap-3">
+        <CheckIcon class="w-5 h-5 text-primary-400 mt-1" />
+        <span>{feature}</span>
+      </li>
+    ))}
+  </ul>
+
+  <div class="mt-auto">
+    <Button 
+      href="/signup" 
+      variant={highlighted ? 'primary' : 'outline'} 
+      class="w-full"
+    >
+      {ctaText}
+    </Button>
+  </div>
+</div>

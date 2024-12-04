@@ -1,0 +1,76 @@
+---
+import ProductLayout from '../../layouts/ProductLayout.astro';
+import Carousel from '../../components/Carousel.astro';
+
+const features = [
+  {
+    title: "Event Scheduling",
+    description: "Powerful scheduling tools with conflict detection and resource management."
+  },
+  {
+    title: "Resource Management",
+    description: "Track and allocate resources, venues, and equipment efficiently."
+  },
+  {
+    title: "Attendee Management",
+    description: "Handle registrations, communications, and attendee engagement."
+  },
+  {
+    title: "Real-time Analytics",
+    description: "Monitor event performance and engagement with detailed analytics."
+  }
+];
+
+const carouselImages = [
+  {
+    src: "/images/eventmgr/home.png",
+    alt: "Eventium Home Dashboard"
+  },
+  {
+    src: "/images/eventmgr/admin-dashboard.png",
+    alt: "Eventium Admin Dashboard"
+  }
+];
+---
+
+<ProductLayout
+  title="Eventium"
+  productName="Eventium"
+  description="A comprehensive event management platform for seamless planning, execution, and analysis of professional events."
+  featuredImage="/images/eventmgr/home.png"
+>
+  <!-- Features Grid -->
+  <div class="grid md:grid-cols-2 gap-8 mb-24">
+    {features.map(feature => (
+      <div class="bg-gray-800/50 p-8 rounded-2xl">
+        <h3 class="text-xl font-semibold mb-4">{feature.title}</h3>
+        <p class="text-gray-400">{feature.description}</p>
+      </div>
+    ))}
+  </div>
+
+  <!-- Image Carousel -->
+  <div class="mb-24">
+    <h2 class="text-3xl font-bold text-center mb-12">Product Screenshots</h2>
+    <Carousel images={carouselImages} />
+  </div>
+
+  <!-- Use Cases -->
+  <div class="text-center mb-24">
+    <h2 class="text-3xl font-bold mb-12">Perfect for Event Organizers</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Conferences</h3>
+        <p class="text-gray-400">Manage large-scale professional conferences</p>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Corporate Events</h3>
+        <p class="text-gray-400">Streamline company meetings and workshops</p>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Tech Meetups</h3>
+        <p class="text-gray-400">Organize community events and gatherings</p>
+      </div>
+    </div>
+  </div>
+</ProductLayout>

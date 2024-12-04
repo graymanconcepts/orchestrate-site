@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PricingCard from '../components/ui/PricingCard.astro';
+
+const pricingPlans = [
+  {
+    name: "Starter",
+    price: "$49",
+    description: "Perfect for small teams getting started",
+    features: [
+      "Up to 5 team members",
+      "Basic user management",
+      "2 active projects",
+      "5GB storage",
+      "Basic email support",
+      "Community access"
+    ]
+  },
+  {
+    name: "Professional",
+    price: "$99",
+    description: "Ideal for growing businesses",
+    highlighted: true,
+    features: [
+      "Up to 20 team members",
+      "Advanced user management",
+      "Unlimited projects",
+      "25GB storage",
+      "Priority email & chat support",
+      "API access",
+      "Advanced analytics",
+      "Custom integrations"
+    ]
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    description: "For large organizations with specific needs",
+    ctaText: "Contact Sales",
+    features: [
+      "Unlimited team members",
+      "Enterprise-grade security",
+      "Unlimited storage",
+      "24/7 priority support",
+      "Dedicated account manager",
+      "Custom deployment options",
+      "SLA guarantees",
+      "Advanced compliance features"
+    ]
+  }
+];
+---
+
+<Layout title="Pricing">
+  <main class="pt-32 pb-24">
+    <div class="container mx-auto px-6">
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          Simple, transparent <span class="gradient-text">pricing</span>
+        </h1>
+        <p class="text-xl text-gray-400">
+          Choose the perfect plan for your team's needs. All plans include our core features.
+        </p>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {pricingPlans.map(plan => (
+          <PricingCard {...plan} />
+        ))}
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="mt-24 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Can I switch plans later?</h3>
+            <p class="text-gray-400">Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">What payment methods do you accept?</h3>
+            <p class="text-gray-400">We accept all major credit cards, PayPal, and wire transfers for enterprise customers.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Do you offer a free trial?</h3>
+            <p class="text-gray-400">Yes, all plans come with a 14-day free trial. No credit card required.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

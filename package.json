@@ -1,0 +1,43 @@
+{
+  "name": "grayman-concepts",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx,astro}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,astro,css,md,json}\"",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.0.10",
+    "@astrojs/tailwind": "^5.1.0",
+    "@headlessui/react": "^1.7.18",
+    "alpinejs": "^3.14.6",
+    "aos": "^2.3.4",
+    "astro": "^4.15.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sharp": "^0.33.2",
+    "swiper": "^11.0.6",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^14.2.1",
+    "@types/aos": "^3.0.7",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "eslint": "^8.56.0",
+    "eslint-plugin-astro": "^0.31.4",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2"
+  }
+}

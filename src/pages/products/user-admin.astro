@@ -1,0 +1,88 @@
+---
+import ProductLayout from '../../layouts/ProductLayout.astro';
+import Carousel from '../../components/Carousel.astro';
+
+const features = [
+  {
+    title: "Role-Based Access Control",
+    description: "Define and manage user roles with granular permissions for different parts of your application."
+  },
+  {
+    title: "User Authentication",
+    description: "Secure authentication system with support for multiple providers and 2FA."
+  },
+  {
+    title: "User Management",
+    description: "Comprehensive tools for managing user accounts, profiles, and settings."
+  },
+  {
+    title: "Audit Logging",
+    description: "Track and monitor user activities with detailed audit logs."
+  }
+];
+
+const carouselImages = [
+  {
+    src: "/images/adminmgr/dashboard.png",
+    alt: "AccessForge Dashboard"
+  },
+  {
+    src: "/images/adminmgr/userlist.png",
+    alt: "AccessForge User List"
+  },
+  {
+    src: "/images/adminmgr/audting.png",
+    alt: "AccessForge Audit Logs"
+  },
+  {
+    src: "/images/adminmgr/metadata.png",
+    alt: "AccessForge Metadata Management"
+  },
+  {
+    src: "/images/adminmgr/org-chart.png",
+    alt: "AccessForge Organization Chart"
+  }
+];
+---
+
+<ProductLayout
+  title="AccessForge"
+  productName="AccessForge"
+  description="A comprehensive platform for managing user accounts, roles, and permissions with enterprise-grade security."
+  featuredImage="/images/adminmgr/dashboard.png"
+>
+  <!-- Features Grid -->
+  <div class="grid md:grid-cols-2 gap-8 mb-24">
+    {features.map(feature => (
+      <div class="bg-gray-800/50 p-8 rounded-2xl">
+        <h3 class="text-xl font-semibold mb-4">{feature.title}</h3>
+        <p class="text-gray-400">{feature.description}</p>
+      </div>
+    ))}
+  </div>
+
+  <!-- Image Carousel -->
+  <div class="mb-24">
+    <h2 class="text-3xl font-bold text-center mb-12">Product Screenshots</h2>
+    <Carousel images={carouselImages} />
+  </div>
+
+  <!-- Use Cases -->
+  <div class="text-center mb-24">
+    <h2 class="text-3xl font-bold mb-12">Perfect for Every Organization</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Enterprise</h3>
+        <p class="text-gray-400">Manage thousands of users with complex role hierarchies</p>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Startups</h3>
+        <p class="text-gray-400">Scale your user management as your business grows</p>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">SaaS Products</h3>
+        <p class="text-gray-400">Built-in tools for multi-tenant applications</p>
+      </div>
+    </div>
+  </div>
+</ProductLayout>

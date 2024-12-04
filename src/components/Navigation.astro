@@ -1,0 +1,59 @@
+---
+import ProductsMenu from './ProductsMenu';
+
+const links = [
+  { text: "Pricing", href: "/pricing" },
+  { text: "Blog", href: "/blog" },
+  { text: "About", href: "/about" },
+];
+
+const currentPath = Astro.url.pathname;
+const isCurrentPath = (path: string) => {
+  if (path === '/') {
+    return currentPath === path;
+  }
+  return currentPath.startsWith(path);
+};
+---
+
+<header class="fixed w-full z-50 bg-gray-900 border-b border-gray-800">
+  <nav class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/images/orchestrate-icon.svg" alt="Orchestrate" class="w-8 h-8" />
+          <div>
+            <span class="text-2xl font-bold gradient-text block">Orchestrate</span>            
+          </div>
+        </a>
+      </div>
+      
+      <div class="flex items-center space-x-8">
+        <a 
+          href="/" 
+          class={`transition-colors mr-8 ${isCurrentPath('/') ? 'text-primary-500 font-medium' : 'text-gray-300 hover:text-white'}`}
+        >
+          Home
+        </a>
+        <ProductsMenu client:load />
+        {links.map(link => (
+          <a 
+            href={link.href} 
+            class={`transition-colors ${isCurrentPath(link.href) ? 'text-primary-500 font-medium' : 'text-gray-300 hover:text-white'}`}
+          >
+            {link.text}
+          </a>
+        ))}
+        <a href="/demo" class="px-4 py-2 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:opacity-90 transition-opacity">
+          Request Demo
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
+</style>

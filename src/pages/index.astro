@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const products = [
+  {
+    title: 'AccessForge',
+    description:
+      'Secure and efficient user account, role, and permission handling with User Admin System, ensuring robust access control for your team or audience.',
+    icon: '👥',
+    href: '/products/user-admin',
+  },
+  {
+    title: 'ColorScribe',
+    description:
+      'Turn ideas into stunning visuals effortlessly with ColorScribe, your go-to app for custom design creation from text.',
+    icon: '🎨',
+    href: '/products/colorscribe',
+  },
+  {
+    title: 'MindScribe',
+    description:
+      'Stay ahead in the AI-driven world with MindScribe, a centralized tool to organize, refine, and optimize your AI prompts for maximum impact.',
+    icon: '🤖',
+    href: '/products/prompt-manager',
+  },
+  {
+    title: 'Eventium',
+    description:
+      'Take the stress out of tech conferences and professional gatherings with Event Manager, a comprehensive tool for managing everything from registration to post-event analytics.',
+    icon: '📅',
+    href: '/products/event-manager',
+  },
+];
+---
+
+<Layout title="Orchestrate Suite - Seamlessly Empower Your Workflow">
+  <main>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-primary-500/20 to-secondary-500/20 pointer-events-none"
+      >
+      </div>
+
+      <div class="container mx-auto px-6 py-24 text-center relative z-10">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          <span class="gradient-text">The Orchestrate Suite:</span>
+          <br />Seamlessly Empowering Your Workflow
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto">
+          Unlock the full potential of your creative and professional endeavors with Orchestrate,
+          the ultimate suite of tools designed to harmonize your workflows and amplify productivity.
+          Whether you're managing users, crafting stunning visuals, organizing AI prompts, or
+          organizing large-scale events, Orchestrate brings it all together in perfect sync.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-8 gradient-text">Why Choose Orchestrate?</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 max-w-6xl mx-auto text-left">
+          <div class="bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm">
+            <h3 class="text-xl font-semibold mb-2 gradient-text">Streamlined User Management</h3>
+            <p class="text-gray-300">
+              Secure and efficient user account, role, and permission handling with AccessForge,
+              ensuring robust access control for your team or audience.
+            </p>
+          </div>
+          <div class="bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm">
+            <h3 class="text-xl font-semibold mb-2 gradient-text">Creativity Unleashed</h3>
+            <p class="text-gray-300">
+              Turn ideas into stunning visuals effortlessly with ColorScribe, your go-to app for
+              custom design creation from text.
+            </p>
+          </div>
+          <div class="bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm">
+            <h3 class="text-xl font-semibold mb-2 gradient-text">AI Optimization Made Simple</h3>
+            <p class="text-gray-300">
+              Stay ahead in the AI-driven world with MindScribe, a centralized tool to organize,
+              refine, and optimize your AI prompts for maximum impact.
+            </p>
+          </div>
+          <div class="bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm">
+            <h3 class="text-xl font-semibold mb-2 gradient-text">Effortless Event Planning</h3>
+            <p class="text-gray-300">
+              Take the stress out of tech conferences and professional gatherings with Eventium, a
+              comprehensive tool for managing everything from registration to post-event analytics.
+            </p>
+          </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl font-bold mb-4 gradient-text">Orchestrate Your Success</h2>
+          <p class="text-xl text-gray-300 mb-6">
+            Whether you're a tech leader, creative professional, or event organizer, Orchestrate
+            provides the tools you need to achieve seamless collaboration and unmatched efficiency.
+          </p>
+          <p class="text-xl text-gray-300">
+            Get started with Orchestrate and watch your workflows transform into a symphony of
+            success.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/demo"
+            class="px-8 py-4 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-lg font-semibold hover:opacity-90 transition-opacity"
+          >
+            Request Demo
+          </a>
+          <a
+            href="/products"
+            class="px-8 py-4 rounded-full border-2 border-gray-700 text-lg font-semibold hover:border-gray-500 transition-colors"
+          >
+            Explore Products
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-24 bg-gray-900/50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16">
+          Our <span class="gradient-text">Product Suite</span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {products.map((product) => <ProductCard {...product} />)}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-6">
+          Ready to <span class="gradient-text">Transform</span> Your Workflow?
+        </h2>
+        <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+          Join the growing community of professionals using Orchestrate Suite to streamline their
+          operations and boost productivity.
+        </p>
+        <a
+          href="/demo"
+          class="px-8 py-4 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-lg font-semibold hover:opacity-90 transition-opacity inline-block"
+        >
+          Get Started Today
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
+</style>

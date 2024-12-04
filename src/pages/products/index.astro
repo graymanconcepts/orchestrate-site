@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const products = [
+  {
+    name: 'AccessForge',
+    description: 'Secure and efficient user account, role, and permission handling with AccessForge, ensuring robust access control for your team or audience.',
+    icon: '👥',
+    href: '/products/user-admin',
+    features: [
+      'Role-based access control',
+      'User lifecycle management',
+      'Audit logging',
+      'SSO integration'
+    ],
+    image: '/images/adminmgr/dashboard.png'
+  },
+  {
+    name: 'ColorScribe',
+    description: 'Turn ideas into stunning visuals effortlessly with ColorScribe, your go-to app for custom design creation from text.',
+    icon: '🎨',
+    href: '/products/colorscribe',
+    features: [
+      'AI-powered color analysis',
+      'Real-time color suggestions',
+      'Color palette management',
+      'Integration with design tools'
+    ],
+    image: '/images/colorscribe/Home from 2024-12-01 09-31-22.png'
+  },
+  {
+    name: 'MindScribe',
+    description: 'Stay ahead in the AI-driven world with MindScribe, a centralized tool to organize, refine, and optimize your AI prompts for maximum impact.',
+    icon: '🤖',
+    href: '/products/prompt-manager',
+    features: [
+      'Prompt version control',
+      'Performance analytics',
+      'Template management',
+      'AI model integration'
+    ],
+    image: '/images/promptmgr/Dashboard from 2024-11-21 15-08-04.png'
+  },
+  {
+    name: 'Eventium',
+    description: 'Take the stress out of tech conferences and professional gatherings with Eventium, a comprehensive tool for managing everything from registration to post-event analytics.',
+    icon: '📅',
+    href: '/products/event-manager',
+    features: [
+      'Event scheduling and tracking',
+      'Resource allocation',
+      'Attendee management',
+      'Real-time analytics'
+    ],
+    image: '/images/eventmgr/home.png'
+  }
+];
+---
+
+<Layout title="Products - Orchestrate Suite">
+  <main class="pt-32 pb-24">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          <span class="gradient-text">Our Products</span>
+        </h1>
+        <p class="text-xl text-gray-400 leading-relaxed">
+          Discover our suite of powerful tools designed to transform your workflow and boost productivity.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        {products.map(product => (
+          <div class="bg-gray-800/50 rounded-2xl p-8 border border-gray-700/50">
+            <div class="flex items-start gap-4 mb-6">
+              <span class="text-3xl">{product.icon}</span>
+              <div>
+                <h2 class="text-2xl font-bold mb-3 gradient-text">{product.name}</h2>
+                <p class="text-gray-400 leading-relaxed">{product.description}</p>
+              </div>
+            </div>
+
+            <div class="relative aspect-video mb-6 rounded-xl overflow-hidden">
+              <img 
+                src={product.image} 
+                alt={`${product.name} Dashboard`}
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+
+            <ul class="space-y-3 mb-8">
+              {product.features.map(feature => (
+                <li class="flex items-start">
+                  <svg class="w-6 h-6 text-primary-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="flex gap-4">
+              <Button href={product.href} variant="primary">Learn More</Button>
+              <Button href="/demo" variant="outline">Request Demo</Button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
+</style>
