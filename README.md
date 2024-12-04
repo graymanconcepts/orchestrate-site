@@ -7,7 +7,7 @@ The official website for Orchestrate Suite, a collection of powerful tools and a
 ## 🚀 Featured Products
 
 - **AccessForge** - Comprehensive user management solution
-- **ColorScribe** - Advanced color management tool
+- **ColorScribe** - Advanced Generative AI Text to Image solution
 - **MindScribe** - AI prompt organization and management
 - **Eventium** - Streamlined event planning and coordination
 
