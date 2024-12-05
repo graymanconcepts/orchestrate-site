@@ -32,7 +32,7 @@ const contactMethods = [
               <div class="text-primary-500 mb-4" set:html={method.icon} />
               <h3 class="text-xl font-semibold mb-2">{method.name}</h3>
               <p class="text-gray-400 mb-4">{method.description}</p>
-              <a href={`mailto:${method.email}`} class="text-primary-500 hover:text-primary-400 transition-colors">
+              <a href={`mailto:${method.email}`} class="text-primary-500 hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer">
                 {method.email}
               </a>
             </div>
@@ -138,6 +138,7 @@ Subject: ${subjectInput.value}
 Message:
 ${messageInput.value}`;
 
-    window.location.href = `mailto:education@graymanconcepts.us?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl = `mailto:education@graymanconcepts.us?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoUrl, '_blank');
   });
 </script>

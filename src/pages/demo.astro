@@ -91,6 +91,7 @@ Email: ${emailInput.value}
 Message:
 ${messageInput.value}`;
 
-    window.location.href = `mailto:education@graymanconcepts.us?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl = `mailto:education@graymanconcepts.us?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoUrl, '_blank');
   });
 </script>
